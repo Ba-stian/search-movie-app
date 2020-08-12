@@ -6,7 +6,6 @@
     "start": "webpack --mode development && webpack-dev-server --open",
     "build": "webpack --mode production",
     "lint:css": "stylelint './src/**/*.js'",
-    "prettier": "prettier"
   },
   "repository": "https://github.com/Ba-stian/search-movie-app.git",
   "author": "Ba-stian",

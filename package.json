@@ -1,0 +1,9 @@
+{
+  "name": "search-movie-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Ba-stian/search-movie-app.git",
+  "author": "Ba-stian",
+  "license": "MIT",
+  "private": true
+}

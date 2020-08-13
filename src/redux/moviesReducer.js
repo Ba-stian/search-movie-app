@@ -3,6 +3,8 @@ const initialState = {
 	loading: false,
 	movies: null,
 	error: '',
+	chosenMovie: '',
+	movieDetails: null,
 };
 const moviesReducer = (state = initialState, action) => {
 	switch (action.type) {
@@ -27,6 +29,22 @@ const moviesReducer = (state = initialState, action) => {
 			...state,
 			loading: false,
 			error: action.payload,
+		};
+	case 'MOVIE_CHOSEN':
+		return {
+			...state,
+			chosenMovie: action.payload,
+		};
+	case 'REQUEST_MOVIE_DETAILS':
+		return {
+			...state,
+			loading: true,
+		};
+	case 'MOVIE_DETAILS_REQUESTED':
+		return {
+			...state,
+			loading: false,
+			movieDetails: action.payload,
 		};
 	default:
 		return state;

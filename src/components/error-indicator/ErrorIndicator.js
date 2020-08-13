@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 const Header = styled.h1`
 margin: 0;
+padding: 100px 0;
+text-align: center;
 font-size: 26px;
 color: #fff;
 `;

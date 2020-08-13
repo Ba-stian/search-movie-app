@@ -38,7 +38,7 @@ const Form = () => {
 		<FormControl fullWidth>
 			<StyledForm onSubmit={onSubmit}>
 				<StyledHeader>Поиск по базе фильмов</StyledHeader>
-				<TextField id="outlined-basic" label="Поиск" variant="outlined" value={value} onChange={onChange} placeholder="Введите название" fullWidth={300} />
+				<TextField id="outlined-basic" label="Поиск" variant="outlined" value={value} onChange={onChange} placeholder="Введите название" fullWidth={300} autoComplete="off" />
 				<ButtonWrapper>
 					<Button
 						type="submit"

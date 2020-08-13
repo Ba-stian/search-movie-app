@@ -13,7 +13,7 @@ width: 400px;
 const StyledHeader = styled.h1`
 font-size: 24px;
 text-align: center;
-font-family: 'Roboto';
+font-family: Roboto, sans-serif;
 color: rgba(0, 0, 0, 0.6);
 `;
 

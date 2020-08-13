@@ -1,7 +1,7 @@
 const initialState = {
 	searchValue: '',
 	loading: false,
-	movies: [],
+	movies: null,
 	error: '',
 };
 const moviesReducer = (state = initialState, action) => {
@@ -25,6 +25,7 @@ const moviesReducer = (state = initialState, action) => {
 	case 'REQUEST_FAILED':
 		return {
 			...state,
+			loading: false,
 			error: action.payload,
 		};
 	default:

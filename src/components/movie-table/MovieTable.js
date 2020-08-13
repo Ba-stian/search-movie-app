@@ -26,7 +26,7 @@ color: #dc004e;
 `;
 
 const MovieTableWrapper = styled.div`
-width: 60%
+width: 90%;
 margin: 0 auto;
 `;
 
@@ -36,22 +36,25 @@ margin: 50px auto;
 `;
 
 const MovieTable = () => {
-	const { movies, loading, error } = useSelector((state) => state && state.movies);
-	const notFound = movies && movies.find((movie) => movie.Error === 'Movie not found!');
+	const { loading, error } = useSelector((state) => state && state.movies);
+	let { movies } = useSelector((state) => state && state.movies);
+	movies = movies && movies[0];
+	const Search = movies?.Search;
+	const totalResults = movies?.totalResults;
 	return (
-		<MovieTableWrapper>
-			<GeneralHeader>Результаты поиска:</GeneralHeader>
+		<>
+			<GeneralHeader>{movies && !loading ? 'Результаты поиска' : 'Здесь будут результаты поиска'}</GeneralHeader>
 			{movies && !loading && (
 				<ResultHeader>
-					{`По вашему запросу было найдено ${movies.length && !notFound ? movies.length : 0} фильмов`}
+					{`По вашему запросу было найдено ${totalResults || 0} фильмов`}
 				</ResultHeader>
 			)}
-			{loading ? <SpinnerWrapper><CircularProgress thickness="2" size="15rem" /></SpinnerWrapper>
-				: (
-					<MovieTableWrapper>
+			<MovieTableWrapper>
+				{loading ? <SpinnerWrapper><CircularProgress thickness="2" size="15rem" /></SpinnerWrapper>
+					: (
 						<Table>
-							{movies && movies.length && !notFound
-							&& <TableBody>{movies.map((movie) => <Movie {...movie} />)}</TableBody>}
+							{Search?.length && totalResults
+							&& <TableBody>{Search.map((movie) => <Movie {...movie} />)}</TableBody>}
 							{error && (
 								<>
 									<ErrorMessage>Кажется что-то пошло не так</ErrorMessage>
@@ -59,9 +62,9 @@ const MovieTable = () => {
 								</>
 							)}
 						</Table>
-					</MovieTableWrapper>
-				)}
-		</MovieTableWrapper>
+					)}
+			</MovieTableWrapper>
+		</>
 	);
 };
 

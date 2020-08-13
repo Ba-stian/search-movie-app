@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Header = styled.h1`
+margin: 0;
 font-size: 26px;
 color: #fff;
 `;

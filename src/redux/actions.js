@@ -12,8 +12,25 @@ const moviesRequested = (movies) => ({
 	payload: movies,
 });
 
+const movieChosen = (id) => ({
+	type: 'MOVIE_CHOSEN',
+	payload: id,
+});
+
+const requestMovieDetails = () => ({
+	type: 'REQUEST_MOVIE_DETAILS',
+});
+
+const movieDetailsRequested = (movieDetails) => ({
+	type: 'MOVIE_DETAILS_REQUESTED',
+	payload: movieDetails,
+});
+
 export {
 	searchMovies,
 	requestMovies,
 	moviesRequested,
+	movieChosen,
+	requestMovieDetails,
+	movieDetailsRequested,
 };

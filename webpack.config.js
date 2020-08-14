@@ -16,7 +16,7 @@ module.exports = () => {
 		output: {
 			path: path.join(__dirname, '/dist'),
 			filename: 'bundle.js',
-			publicPath: '/',
+			publicPath: '',
 		},
 		module: {
 			rules: [
@@ -45,5 +45,18 @@ module.exports = () => {
 			new webpack.HotModuleReplacementPlugin(),
 			new webpack.DefinePlugin(envKeys),
 		],
+		mode: 'production',
+		optimization: {
+			minimize: process.env.NODE_ENV !== 'development',
+			splitChunks: {
+				cacheGroups: {
+					commons: {
+						test: /[\\/]node_modules[\\/]/,
+						name: 'vendor',
+						chunks: 'all',
+					},
+				},
+			},
+		},
 	};
 };

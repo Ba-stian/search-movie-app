@@ -40,13 +40,11 @@ const MovieDetails = () => {
 								{Object.entries(movieDetails).map(([key, value]) => {
 									let raiting = [];
 									if (key === 'Ratings') {
-										raiting = value.map(({ Source, Value }) => {
-											return (
-												<StyledTypography variant="body2" color="textSecondary" component="p">
-													{`${Source}: ${Value}`}
-												</StyledTypography>
-											);
-										});
+										raiting = value.map(({ Source, Value }) => (
+											<StyledTypography variant="body2" color="textSecondary" component="p">
+												{`${Source}: ${Value}`}
+											</StyledTypography>
+										));
 									}
 									return (
 										<>
